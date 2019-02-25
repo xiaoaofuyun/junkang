@@ -10,7 +10,7 @@
             </div>
             <ul class="contentright_box_left_ul">
                 <li class="contentright_box_left_ul_li" :class="{on:index =='0'}" v-for="(item, index) in newList" :key="index">
-                    <a :href="item.link">
+                    <a :href="'http://oa.jklife.com'+item.link">
                         <div v-if="index==0">
                           <div class="contentright_box_left_ul_li_img fl">
                             <img :src="item.imgUrl">

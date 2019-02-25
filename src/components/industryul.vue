@@ -2,7 +2,7 @@
   <div>
     <ul class="industry_ul">
       <li class="industry_ul_li" v-for="(item,index) in informationList" :key="index">
-          <a :href="'http://106.38.29.144:23320'+item.link">
+          <a :href="'http://oa.jklife.com'+item.link">
               <div class="industry_ul_li_img fl">
                   <img :src="'http://106.38.29.144:23320'+item.imgUrl">
               </div>

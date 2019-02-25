@@ -8,8 +8,8 @@
                 </div>
                 <ul class="issuedbox_ul">
                     <li class="issuedbox_ul_li" v-for="(item,index) in articleList" :key="index">
-                        <!-- <a :href="nowhost+'#industrypage'"> -->
-                          <router-link :to="{path:'/issuedetail',query: {id:item.link}}">
+                        <a :href="'http://oa.jklife.com'+item.link">
+                          <!-- <router-link :to="{path:'/issuedetail',query: {id:item.link}}"> -->
                             <div class="issuedbox_ul_li_date fl">
                                 <h2>{{item.publishDate.split(' ')[0].split('-')[item.publishDate.split(' ')[0].split('-').length-1]}}</h2>
                                 <p>{{item.publishDate.split(' ')[0].slice(0,7)}}</p>
@@ -20,8 +20,8 @@
                             </div>
                             <div class="clear"></div>
                             <a class="issuedbox_ul_li_a">查看详情</a>
-                        <!-- </a> -->
-                      </router-link>
+                        </a>
+                      <!-- </router-link> -->
                     </li>
                     <!-- 模板 -->
                     <!-- <li class="issuedbox_ul_li">
@@ -67,7 +67,7 @@
             items.forEach(item => {
               item.show = false
               item.changeRed = false
-              item.link=item.link.split("id=")[1];
+              // item.link=item.link.split("id=")[1];
             })
             console.log(res.data)
             this.articleList = res.data.items.slice(0,5)

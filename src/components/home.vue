@@ -85,23 +85,23 @@
                 </li>
             </ul>
         </div>
-        <div class="contentleft_bottom">
-            <div class="contentleft_bottombox">
-                <select>
+        <!-- <div class="contentleft_bottom"> -->
+            <!-- <div class="contentleft_bottombox"> -->
+                <!-- <select> -->
                     <!-- <option>内网</option> -->
-                    <option>公司新闻-公司资讯</option>
-                    <option>公司新闻-最新更新</option>
-                    <option>行业信息</option>
-                    <option>公司发文</option>
-                    <option>工作通知</option>
+                    <!-- <option>公司新闻-公司资讯</option> -->
+                    <!-- <option>公司新闻-最新更新</option> -->
+                    <!-- <option>行业信息</option> -->
+                    <!-- <option>公司发文</option> -->
+                    <!-- <option>工作通知</option> -->
                     <!-- <option>文件模板</option>
                     <option>文件模板</option>
                     <option>文件模板</option>
                     <option>文件模板</option> -->
-                </select>
-                <div class="contentleft_bottom_bg"></div>
-            </div>
-        </div>
+                <!-- </select> -->
+                <!-- <div class="contentleft_bottom_bg"></div> -->
+            <!-- </div> -->
+        <!-- </div> -->
     </div>
     <!-- 路由出口 -->
     <router-view></router-view>
