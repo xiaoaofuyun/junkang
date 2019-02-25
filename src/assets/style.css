@@ -320,7 +320,7 @@
 .contentleft_nav_ul_li.on{
     background-color: #74747d;
     border-top: 1px solid transparent;
-    border-bottom: none;
+    /* border-bottom: none; */
 }
 .contentleft_nav_ul_li.on .contentleft_nav_ul_li_h2{
     font-weight: bold;

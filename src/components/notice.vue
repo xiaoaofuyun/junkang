@@ -9,7 +9,7 @@
                 <ul class="issuedbox_ul">
                     <li class="issuedbox_ul_li" v-for="(item,index) in noticeList" :key="index">
                           <!-- <router-link :to="{path:'/noticedetail',query: {id:item.link}}"> -->
-                            <a :href="'http://oa.jklife.com'+item.link">
+                        <a :href="'http://106.38.29.144:23320'+item.link+'&userName='+userName">
                             <div class="issuedbox_ul_li_date fl">
                                 <h2>{{item.publishDate.split(' ')[0].split('-')[item.publishDate.split(' ')[0].split('-').length-1]}}</h2>
                                 <p>{{item.publishDate.split(' ')[0].slice(0,7)}}</p>
@@ -39,7 +39,7 @@
                     </li> -->
                 </ul>
                 <div class="issuedbox_more">
-                    <a href="#">查看更多</a>
+                    <a :href="'http://106.38.29.144:23320/seeyon/bulData.do?method=bulIndex&typeId=2&spaceType=&spaceId='+'&userName='+userName">查看更多</a>
                 </div>
             </div>
         </div>
@@ -48,10 +48,12 @@
 </template>
 
 <script>
+let Base64 = require('js-base64').Base64;
 export default {
   data () {
     return {
-      noticeList:[] //工作通知的数据
+      noticeList:[], //工作通知的数据
+      userName:Base64.encode(sessionStorage.getItem('un')),
     }
   },
   methods: {

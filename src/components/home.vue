@@ -107,7 +107,7 @@
     <router-view></router-view>
 
     <div class="links">
-    <h2 class="links_h2">友情链接 <a href="#">中国忠旺官网</a> <a href="#">中国银行保险监督管理委员会</a> <a href="#">中国保险行业协会</a></h2>
+    <h2 class="links_h2">友情链接 <a href="http://www.zhongwang.com">中国忠旺官网</a> <a href="http://www.cbrc.gov.cn/chinese/newIndex.html">中国银行保险监督管理委员会</a> <a href="http://www.iachina.cn">中国保险行业协会</a></h2>
 </div>
   <div class="weather">
       <div class="weather_div">

@@ -10,10 +10,12 @@
             </div>
             <ul class="contentright_box_left_ul">
                 <li class="contentright_box_left_ul_li" :class="{on:index =='0'}" v-for="(item, index) in newList" :key="index">
-                    <a :href="'http://oa.jklife.com'+item.link">
+                    <a :href="'http://106.38.29.144:23320'+item.link+'&userName='+userName">
                         <div v-if="index==0">
                           <div class="contentright_box_left_ul_li_img fl">
-                            <img :src="item.imgUrl">
+                            <!-- <img :src="'http://106.38.29.144:23320'+item.imgUrl+'&userName='+userName""> -->
+                            <!-- <img :src="'http://106.38.29.144:23320'+item.imgUrl+'&userName='+userName"> -->
+                            <img :src="'http://106.38.29.144:23320/seeyon/fileUpload.do?method=showRTE&createDate=&type=image&_isModalDialog=true&openFrom='+'&fileId='+item.imgUrl">
                           </div>
                           <div class="contentright_box_left_ul_li_text fl">
                               <h3>{{item.publishDate.split(' ')[0].replace(/-/g ,',')}}</h3>
@@ -62,7 +64,7 @@
               <li class="contentright_box_right_ul_li" v-for="(item,index) in bulletinList" :key="item.link" :class="{on:item.show}" @click="changeImage(index, item)">
                   <h2 class="contentright_box_right_ul_li_h2">{{item.title}}</h2>
                   <div class="contentright_box_right_ul_li_div" :style="'display: block'" v-show="item.show">
-                      <a :href="item.link">
+                    <a :href="'http://106.38.29.144:23320'+item.link+'&userName='+userName">
                           <p class="contentright_box_right_ul_li_div_p">{{item.brief}}</p>
                       </a>
                   </div>
@@ -76,12 +78,14 @@
 </template>
 
 <script>
+let Base64 = require('js-base64').Base64;
 export default {
   data () {
     return {
       newList: [], // 存放新闻数据
       bulletinList: [], // 存放公告数据
       newTypeID:[], // 存放新闻的ID
+      userName:Base64.encode(sessionStorage.getItem('un')),
 
 
     }
@@ -134,6 +138,13 @@ export default {
    this.axios.get('/seeyon/menhu.do?method=getNewsList&typeId=1&offset=0&limit=10')
       .then(res => {
          console.log(res.data)
+         const {items} = res.data
+         items.forEach(item => {
+        
+           item.imgUrl=item.imgUrl.split("id=")[1];
+         })
+
+
         this.newList = res.data.items
       })
     this.getBulletin()

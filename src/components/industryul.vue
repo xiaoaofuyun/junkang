@@ -2,9 +2,11 @@
   <div>
     <ul class="industry_ul">
       <li class="industry_ul_li" v-for="(item,index) in informationList" :key="index">
-          <a :href="'http://oa.jklife.com'+item.link">
+            <a :href="'http://106.38.29.144:23320'+item.link+'&userName='+userName">
               <div class="industry_ul_li_img fl">
-                  <img :src="'http://106.38.29.144:23320'+item.imgUrl">
+                  <!-- <img :src="'http://106.38.29.144:23320'+item.imgUrl"> -->
+                  <img :src="'http://106.38.29.144:23320/seeyon/fileUpload.do?method=showRTE&createDate=&type=image&_isModalDialog=true&openFrom='+'&fileId='+item.imgUrl">
+
               </div>
               <div class="industry_ul_li_text">
                   <h2 class="industry_ul_li_text_h2">{{item.title}}</h2>
@@ -31,18 +33,21 @@
       </li> -->
     </ul>
   <div class="issuedbox_more">
-    <a href="#">查看更多</a>
+
+
+    <a :href="'http://106.38.29.144:23320/seeyon/newsData.do?method=newsIndex&spaceType=&spaceId=&boardId=2'+'&userName='+userName">查看更多</a>
   </div>
   </div>
 </template>
 
 <script>
-
+let Base64 = require('js-base64').Base64;
 export default {
 
   data () {
     return {
-      informationList: []
+      informationList: [],
+        userName:Base64.encode(sessionStorage.getItem('un')),
     }
   },
   methods: {
@@ -56,6 +61,11 @@ export default {
 
       .then(res => {
         console.log(res.data)
+        const {items} = res.data
+        items.forEach(item => {
+
+          item.imgUrl=item.imgUrl.split("id=")[1];
+        })
         this.informationList = res.data.items
       })
     }
